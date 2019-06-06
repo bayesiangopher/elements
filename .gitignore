@@ -11,5 +11,10 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# IDE
+# IDE files
 .idea
+
+# Python files:
+venv
+__pycache__
+.ipynb_checkpoints
