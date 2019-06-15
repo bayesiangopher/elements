@@ -1,4 +1,4 @@
-package ds
+package list
 
 type LinkedList struct {
 	Data 	[]Node
