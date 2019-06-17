@@ -26,10 +26,6 @@ func TestCreate(t *testing.T) {
 	}
 }
 
-//func TestCreatePanic(t *testing.T) {
-//	_ := Create(false, nil)
-//}
-
 func TestAdd(t *testing.T) {
 	arr := Create(false, 0, 1, 2, 3, 4, 5, 4, 6, 7, 8, 9, 3, 2, 1)
 	arr.Print(PrintOptions{offsetBegin: 3, offsetEnd: 3})

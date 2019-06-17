@@ -123,7 +123,9 @@ func (a *Array) checkDuplicates(value interface{}) (ok bool) {
 	if ref.ValueOf(value).Kind().String() == "slice" {
 		vals := ref.ValueOf(value)
 		for i := 0; i < len(a.data); i++ {
-			if a.data[i] != nil && ref.TypeOf(a.data[i]).Kind().String() == "slice" && ref.ValueOf(a.data[i]).Len() == vals.Len() {
+			if a.data[i] != nil &&
+				ref.TypeOf(a.data[i]).Kind().String() == "slice" &&
+				ref.ValueOf(a.data[i]).Len() == vals.Len() {
 				maxLen := ref.ValueOf(a.data[i]).Len()
 				for j := 0; j < maxLen; j++  {
 					if vals.Index(j) == ref.ValueOf(a.data[i]).Index(j) {
@@ -151,13 +153,15 @@ func (a *Array) checkDuplicates(value interface{}) (ok bool) {
 func (a *Array) Print(options PrintOptions) {
 	if options == (PrintOptions{}) {
 		for index, element := range a.data {
-			if (index < defaultOffsetB || index > a.size-defaultOffsetE) && element != nil {
+			if (index < defaultOffsetB ||
+				index > a.size-defaultOffsetE) && element != nil {
 				fmt.Printf("%d: %v\n", index, element)
 			}
 		}
 	} else {
 		for index, element := range a.data {
-			if (index < options.offsetBegin || index > a.size-options.offsetEnd-1) && element != nil {
+			if (index < options.offsetBegin ||
+				index > a.size-options.offsetEnd-1) && element != nil {
 				fmt.Printf("%d: %v\n", index, element)
 			}
 		}
